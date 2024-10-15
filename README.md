@@ -122,10 +122,15 @@
 | AuroraTime | Vector | 极光显示时间 | (22, 23, 3, 4) |
 
 ## 实现效果
+* 清晨(Morning)：
 ![SkyboxMorning](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxMorning.png)
+* 白天(Afternoon)：
 ![SkyboxAfternoon](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxAfternoon.png)
+* 黄昏(Dusk)：
 ![SkyboxDusk](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxDusk.png)
+* 深夜(Night)：
 ![SkyboxNight](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxNight.png)
+* 深夜-极光(NightAurora)：
 ![SkyboxNightAurora](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxNightAurora.png)
 ## TODO
 * 日月贴图显示
