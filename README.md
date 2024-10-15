@@ -121,6 +121,12 @@
 | AuroraSpeed | Range(0, 1) | 极光运动速度 | 0.3 |
 | AuroraTime | Vector | 极光显示时间 | (22, 23, 3, 4) |
 
+## 实现效果
+![SkyboxMorning](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxMorning.png)
+![SkyboxAfternoon](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxAfternoon.png)
+![SkyboxDusk](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxDusk.png)
+![SkyboxNight](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxNight.png)
+![SkyboxNightAurora](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxNightAurora.png)
 ## TODO
 * 日月贴图显示
 * 体积云
