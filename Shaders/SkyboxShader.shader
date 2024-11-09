@@ -27,32 +27,20 @@ Shader"Custom/SkyboxShader"
         _NightBloomColor ("Night Bloom Color", Color) = (1, 1, 1, 1)
 
         [Header(Sky Morning)]
-        _MorningTopColor ("Morning Top Color", Color) = (1, 1, 1, 1)
-        _MorningBottomColor ("Morning Bottom Color", Color) = (1, 1, 1, 1)
-        _MorningUpperThreshold ("Morning Upper Threshold", Float) = 0.3
-        _MorningUpperRange ("Morning Upper Range", Float) = 0.2
-        _MorningTime ("Morning Time", Vector) = (5, 7, 8, 10)
+        _MorningColorGradientTexture ("Morning Color Gradient Texture", 2D) = "white" {}
+        _MorningTimeCurveTexture ("Morning Time Curve Texture", 2D) = "white" {}
 
         [Header(Sky Afternoon)]
-        _AfternoonTopColor ("Afternoon Top Color", Color) = (1, 1, 1, 1)
-        _AfternoonBottomColor ("Afternoon Bottom Color", Color) = (1, 1, 1, 1)
-        _AfternoonUpperThreshold ("Afternoon Upper Threshold", Float) = 0.3
-        _AfternoonUpperRange ("Afternoon Upper Range", Float) = 0.2
-        _AfternoonTime ("Afternoon Time", Vector) = (8, 10, 16, 18)
+        _AfternoonColorGradientTexture("Afternoon Color Gradient Texture", 2D) = "white" {}
+        _AfternoonTimeCurveTexture ("Afternoon Time Curve Texture", 2D) = "white" {}
 
         [Header(Sky Dusk)]
-        _DuskTopColor ("Dusk Top Color", Color) = (1, 1, 1, 1)
-        _DuskBottomColor ("Dusk Bottom Color", Color) = (1, 1, 1, 1)
-        _DuskUpperThreshold ("Dusk Upper Threshold", Float) = 0.3
-        _DuskUpperRange ("Dusk Upper Range", Float) = 0.2
-        _DuskTime ("Dusk Time", Vector) = (16, 18, 18, 20)
+        _DuskColorGradientTexture("Dusk Color Gradient Texture", 2D) = "white" {}
+        _DuskTimeCurveTexture ("Dusk Time Curve Texture", 2D) = "white" {}
 
         [Header(Sky Night)]
-        _NightTopColor ("Night Top Color", Color) = (1, 1, 1, 1)
-        _NightBottomColor ("Night Bottom Color", Color) = (1, 1, 1, 1)
-        _NightUpperThreshold ("Night Upper Threshold", Float) = 0.3
-        _NightUpperRange ("Night Upper Range", Float) = 0.2
-        _NightTime ("Night Time", Vector) = (18, 20, 5, 7)
+        _NightColorGradientTexture("Night Color Gradient Texture", 2D) = "white" {}
+        _NightTimeCurveTexture ("Night Time Curve Texture", 2D) = "white" {}
 
         [Header(Cloud)]
         [Toggle(_USE_CLOUD)] _UseCloud ("Use Cloud", Float) = 1.0
@@ -64,7 +52,7 @@ Shader"Custom/SkyboxShader"
         _CloudSpeed ("Cloud Speed", Float) = 0.5
         _CloudThreshold ("Cloud Threshold", Range(0, 1)) = 0.3
         _CloudRange ("Cloud Range", Range(0, 1)) = 0.5
-        _CloudTime ("Cloud Time", Vector) = (22, 23, 4, 5)
+        _CloudTimeCurveTexture ("Cloud Time Curve Texture", 2D) = "white" {}
 
         [Header(Cloud Color)]
         _MorningCloudColor ("Morning Cloud Color", Color) = (1, 1, 1, 1)
@@ -87,7 +75,7 @@ Shader"Custom/SkyboxShader"
         _AuroraColor ("Aurora Color", Color) = (1, 1, 1, 1)
         _AuroraColorFactor ("Aurora Color Factor", Range(0,1)) = 0.5
         _AuroraSpeed ("Aurora Speed", Range(0,1)) = 0.5
-        _AuroraTime ("Aurora Time", Vector) = (22, 23, 3, 4)
+        _AuroraTimeCurveTexture ("Aurora Time Curve Texture", 2D) = "white" {}
 
     }
     SubShader
@@ -149,30 +137,6 @@ Shader"Custom/SkyboxShader"
                 float4 _DuskBloomColor;
                 float4 _NightBloomColor;
 
-                float4 _MorningTopColor;
-                float4 _MorningBottomColor;
-                float _MorningUpperThreshold;
-                float _MorningUpperRange;
-                float4 _MorningTime;
-
-                float4 _AfternoonTopColor;
-                float4 _AfternoonBottomColor;
-                float _AfternoonUpperThreshold;
-                float _AfternoonUpperRange;
-                float4 _AfternoonTime;
-
-                float4 _DuskTopColor;
-                float4 _DuskBottomColor;
-                float _DuskUpperThreshold;
-                float _DuskUpperRange;
-                float4 _DuskTime;
-
-                float4 _NightTopColor;
-                float4 _NightBottomColor;
-                float _NightUpperThreshold;
-                float _NightUpperRange;
-                float4 _NightTime;
-
                 float4 _MorningCloudColor;
                 float4 _AfternoonCloudColor;
                 float4 _DuskCloudColor;
@@ -186,7 +150,6 @@ Shader"Custom/SkyboxShader"
                 float _CloudSpeed;
                 float _CloudThreshold;
                 float _CloudRange;
-                float4 _CloudTime;
 
                 float _CloudFadeDistanceThreshold;
                 float _CloudFadeDistanceRange;
@@ -198,13 +161,22 @@ Shader"Custom/SkyboxShader"
                 float4 _AuroraColor;
                 float _AuroraColorFactor;
                 float _AuroraSpeed;
-                float4 _AuroraTime;
             CBUFFER_END
 
-            TEXTURE2D(_CloudBaseNoise);         SAMPLER(sampler_CloudBaseNoise);
-            TEXTURE2D(_CloudFirstNoise);        SAMPLER(sampler_CloudFirstNoise);
-            TEXTURE2D(_CloudSecondNoise);       SAMPLER(sampler_CloudSecondNoise);
-            TEXTURE2D(_StarTexture);            SAMPLER(sampler_StarTexture);
+            TEXTURE2D(_MorningColorGradientTexture);    SAMPLER(sampler_MorningColorGradientTexture);
+            TEXTURE2D(_MorningTimeCurveTexture);        SAMPLER(sampler_MorningTimeCurveTexture);
+            TEXTURE2D(_AfternoonColorGradientTexture);  SAMPLER(sampler_AfternoonColorGradientTexture);
+            TEXTURE2D(_AfternoonTimeCurveTexture);      SAMPLER(sampler_AfternoonTimeCurveTexture);
+            TEXTURE2D(_DuskColorGradientTexture);       SAMPLER(sampler_DuskColorGradientTexture);
+            TEXTURE2D(_DuskTimeCurveTexture);           SAMPLER(sampler_DuskTimeCurveTexture);
+            TEXTURE2D(_NightColorGradientTexture);      SAMPLER(sampler_NightColorGradientTexture);
+            TEXTURE2D(_NightTimeCurveTexture);          SAMPLER(sampler_NightTimeCurveTexture);
+            TEXTURE2D(_CloudTimeCurveTexture);          SAMPLER(sampler_CloudTimeCurveTexture);
+            TEXTURE2D(_AuroraTimeCurveTexture);         SAMPLER(sampler_AuroraTimeCurveTexture);
+            TEXTURE2D(_CloudBaseNoise);                 SAMPLER(sampler_CloudBaseNoise);
+            TEXTURE2D(_CloudFirstNoise);                SAMPLER(sampler_CloudFirstNoise);
+            TEXTURE2D(_CloudSecondNoise);               SAMPLER(sampler_CloudSecondNoise);
+            TEXTURE2D(_StarTexture);                    SAMPLER(sampler_StarTexture);
 
 
             Varyings vert(Attributes input)
@@ -223,25 +195,6 @@ Shader"Custom/SkyboxShader"
             {
                 float ratio = (value - inRange.x) / (inRange.y - inRange.x);
                 return ratio * (outRange.y - outRange.x) + outRange.x;
-            }
-
-            // 获取平滑过渡的lerp值
-            float GetLerpValue(float time, float2 start, float2 end)
-            {
-                if (time < start.x || time > end.y)
-                    return 0.0;
-                else if (time > start.y && time < end.x)
-                    return 1.0;
-                else if (time >= start.x && time <= start.y)
-                    return smoothstep(start.x, start.y, time);
-                else return smoothstep(end.y, end.x, time);
-            }
-
-            float3 GetSkyColor(float3 topColor, float3 bottomColor, float upperThreshold, float upperRange, float height)
-            {
-                float skyColorRatio = 1.0 - smoothstep(upperThreshold - upperRange, upperThreshold + upperRange, height);
-                float3 skyColor = lerp(topColor, bottomColor, skyColorRatio);
-                return skyColor;
             }
 
             float4 frag(Varyings input) : SV_TARGET
@@ -264,17 +217,16 @@ Shader"Custom/SkyboxShader"
                 moonColor = moonColor * saturate(moonRange - moonCrescenRange);
 
                 // Sky Color
-                float3 morningSkyColor = GetSkyColor(_MorningTopColor.rgb, _MorningBottomColor.rgb, _MorningUpperThreshold,  _MorningUpperRange, abs(input.uv.y));
-                float3 afternoonSkyColor = GetSkyColor(_AfternoonTopColor.rgb, _AfternoonBottomColor.rgb, _AfternoonUpperThreshold,  _AfternoonUpperRange, abs(input.uv.y));
-                float3 duskSkyColor = GetSkyColor(_DuskTopColor.rgb, _DuskBottomColor.rgb, _DuskUpperThreshold, _DuskUpperRange, abs(input.uv.y));
-                float3 nightSkyColor = GetSkyColor(_NightTopColor.rgb, _NightBottomColor.rgb, _NightUpperThreshold, _NightUpperRange, abs(input.uv.y));
+                float3 morningSkyColor = SAMPLE_TEXTURE2D(_MorningColorGradientTexture, sampler_MorningColorGradientTexture, float2(abs(input.uv.y), 0.5)).rgb;
+                float3 afternoonSkyColor = SAMPLE_TEXTURE2D(_AfternoonColorGradientTexture, sampler_AfternoonColorGradientTexture, float2(abs(input.uv.y), 0.5)).rgb;
+                float3 duskSkyColor = SAMPLE_TEXTURE2D(_DuskColorGradientTexture, sampler_DuskColorGradientTexture, float2(abs(input.uv.y), 0.5)).rgb;
+                float3 nightSkyColor = SAMPLE_TEXTURE2D(_NightColorGradientTexture, sampler_NightColorGradientTexture, float2(abs(input.uv.y), 0.5)).rgb;
 
                 // Sun Bloom
-
-                float morningLerpValue = GetLerpValue(_CurrentTime, _MorningTime.xy, _MorningTime.zw);
-                float afternoonLerpValue = GetLerpValue(_CurrentTime, _AfternoonTime.xy, _AfternoonTime.zw);
-                float duskLerpValue = GetLerpValue(_CurrentTime, _DuskTime.xy, _DuskTime.zw);
-                float nightLerpValue = 1.0 - GetLerpValue(_CurrentTime, _NightTime.zw, _NightTime.xy);
+                float morningLerpValue = SAMPLE_TEXTURE2D(_MorningTimeCurveTexture, sampler_MorningTimeCurveTexture, float2(_CurrentTime / 24.0, 0.5)).r;
+                float afternoonLerpValue = SAMPLE_TEXTURE2D(_AfternoonTimeCurveTexture, sampler_AfternoonTimeCurveTexture, float2(_CurrentTime / 24.0, 0.5)).r;
+                float duskLerpValue = SAMPLE_TEXTURE2D(_DuskTimeCurveTexture, sampler_DuskTimeCurveTexture, float2(_CurrentTime / 24.0, 0.5)).r;
+                float nightLerpValue = SAMPLE_TEXTURE2D(_NightTimeCurveTexture, sampler_NightTimeCurveTexture, float2(_CurrentTime / 24.0, 0.5)).r;
 
                 // Sun and Moon Bloom
                 float sunBloom = saturate((1.0 - sunDis / _BloomRadius) * _BloomStrength);
@@ -313,7 +265,7 @@ Shader"Custom/SkyboxShader"
                     float4 auroraCol = float4(aurora, 0.1354);
                     float3 auroraColor = lerp(finalSkyColor, surAuroraCol.rgb, surAuroraCol.a);
                     auroraColor = lerp(auroraColor, auroraCol.rgb, auroraCol.a);
-                    float auroraLerpValue = 1.0 - GetLerpValue(_CurrentTime, _AuroraTime.zw, _AuroraTime.xy);
+                    float auroraLerpValue = SAMPLE_TEXTURE2D(_AuroraTimeCurveTexture, sampler_AuroraTimeCurveTexture, float2(_CurrentTime / 24.0, 0.5)).r;
                     finalSkyColor = lerp(finalSkyColor, auroraColor, auroraLerpValue);
                 #endif
 
@@ -338,11 +290,7 @@ Shader"Custom/SkyboxShader"
                                     + _DuskCloudColor * duskLerpValue \
                                     + _NightCloudColor * nightLerpValue;
                     float3 cloudSkyColor = lerp(finalSkyColor, finalCloudColor, finalNoise);
-                    float cloudLerpValue = 0.0;
-                    if(_CloudTime.x < _CloudTime.z)
-                        cloudLerpValue = GetLerpValue(_CurrentTime, _CloudTime.xy, _CloudTime.zw);
-                    else
-                        cloudLerpValue = 1.0 - GetLerpValue(_CurrentTime, _CloudTime.zw, _CloudTime.xy);
+                    float cloudLerpValue = SAMPLE_TEXTURE2D(_CloudTimeCurveTexture, sampler_CloudTimeCurveTexture, float2(_CurrentTime / 24.0, 0.5)).r;
                     finalColor = lerp(finalColor, cloudSkyColor, cloudLerpValue);
                 #endif
 

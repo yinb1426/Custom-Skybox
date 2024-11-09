@@ -2,11 +2,11 @@
 ## 概述
 自定义天空盒，提供清晨、白天、黄昏、深夜**天空颜色**的配置，**太阳、月亮、星空**等相关参数设置，并提供云层、星空、极光等显示选项。
 ## 特性
-* 提供清晨、白天、黄昏、深夜，4段时间天空颜色的配置。
-* 提供太阳、月亮、星空相关参数的配置。
-* 提供噪声云层显示选项及其相关参数配置。
-* 提供星空显示选项及其相关参数配置。
-* 提供极光显示选项及其相关参数配置。
+* 提供清晨、白天、黄昏、深夜，4段时间天空颜色的配置
+* 提供太阳、月亮、星空相关参数的配置
+* 提供噪声云层显示选项及其相关参数配置
+* 提供星空显示选项及其相关参数配置
+* 提供极光显示选项及其相关参数配置
 ## 使用说明
 1. 请创建Unity URP工程以使用此天空盒
 2. 在“Window-Rendering-Lighting”菜单中，选择Environment选项卡中的“Skybox Material”选择本天空盒
@@ -15,7 +15,7 @@
 ## Shader参数
 **常规**：
 | 参数 | 类型 | <center>说明</center> | 建议参考值 |
-| :------: | :------: | ------ | :------: |
+| :------: | :------: | :------ | :------: |
 | CurrentTime | Range(0, 24) | 当前时间，由SkyboxController.cs脚本控制 | |
 
 **太阳与月亮**：
@@ -44,6 +44,7 @@
 | :------: | :------: | ------ | :------: |
 | MorningColorGradientTexture | 2D | 清晨天空颜色梯度图 |  |
 | MorningTimeCurveTexture | 2D | 清晨天空起止时间曲线图 |  | 
+
 
 **白天天空**：
 | 参数 | 类型 | <center>说明</center> | 建议参考值 |
@@ -109,18 +110,6 @@
 | AuroraTimeCurveTexture | 2D | 极光显示起止时间曲线图 |  | 
 
 > 原天空颜色和现实时间的诸多变量已经**废弃**，由脚本中的**梯度和曲线**替代。
-
-## 实现效果
-* 清晨(Morning)：
-![SkyboxMorning](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxMorning.png)
-* 白天(Afternoon)：
-![SkyboxAfternoon](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxAfternoon.png)
-* 黄昏(Dusk)：
-![SkyboxDusk](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxDusk.png)
-* 深夜(Night)：
-![SkyboxNight](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxNight.png)
-* 深夜-极光(NightAurora)：
-![SkyboxNightAurora](https://github.com/yinb1426/Custom-Skybox/blob/main/Pictures/SkyboxNightAurora.png)
 
 ## TODO
 * 日月贴图显示

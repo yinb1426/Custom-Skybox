@@ -26,6 +26,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AfternoonColorGradientTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AfternoonTimeCurveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AuroraTimeCurveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -46,6 +58,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: e39cc72ce12bbf84bb882035a988e7f0, type: 3}
         m_Scale: {x: 0.03, y: 0.05}
         m_Offset: {x: 0, y: 0}
+    - _CloudTimeCurveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -58,6 +74,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DuskColorGradientTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DuskTimeCurveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -67,6 +91,22 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MorningColorGradientTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MorningTimeCurveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NightColorGradientTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NightTimeCurveTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -108,8 +148,8 @@ Material:
     - _AuroraSpeed: 0.3
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BloomRadius: 0.8
-    - _BloomStrength: 0.5
+    - _BloomRadius: 0.6
+    - _BloomStrength: 0.4
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -117,7 +157,7 @@ Material:
     - _CloudFadeDistanceRange: 0.025
     - _CloudFadeDistanceThreshold: 0
     - _CloudHeight: 2.5
-    - _CloudRange: 0.208
+    - _CloudRange: 0.222
     - _CloudSpeed: 0.008
     - _CloudThreshold: 0.02
     - _Controller: 140000
@@ -130,12 +170,14 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _DuskUpperRange: -7.02
+    - _DuskUpperThreshold: 0.3
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _MoonCrescenOffset: 0.2
+    - _MoonCrescenOffset: 0.1
     - _MoonRadius: 0.05
     - _MoonStrength: 50
     - _MorningUpperRange: 0.4
@@ -181,6 +223,11 @@ Material:
     - _DawnCloudColor: {r: 0.80392164, g: 0.6509804, b: 0.65882355, a: 1}
     - _DawnTime: {r: 16, g: 18, b: 18, a: 20}
     - _DawnTopColor: {r: 0.3019608, g: 0.34901962, b: 0.61960787, a: 1}
+    - _DuskBloomColor: {r: 1, g: 0.5921569, b: 0.15294118, a: 1}
+    - _DuskBottomColor: {r: 0.7803922, g: 0.63529414, b: 0.627451, a: 1}
+    - _DuskCloudColor: {r: 0.80392164, g: 0.6509804, b: 0.65882355, a: 1}
+    - _DuskTime: {r: 16, g: 18, b: 18, a: 20}
+    - _DuskTopColor: {r: 0.3019608, g: 0.34901962, b: 0.61960787, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MoonColor: {r: 2.9960787, g: 2.5300815, b: 0.6660917, a: 1}
     - _MorningBloomColor: {r: 0.7764329, g: 0.6878899, b: 0.64361835, a: 1}
